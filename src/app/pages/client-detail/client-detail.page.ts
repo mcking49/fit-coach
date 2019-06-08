@@ -1,4 +1,9 @@
+import { ClientService } from './../../services/client.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/interfaces/user';
+import { WeightTrack } from 'src/app/interfaces/weight-track';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-detail',
@@ -7,9 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientDetailPage implements OnInit {
 
-  constructor() { }
+  public client$: Observable<User>;
+  public clientWeightTrack: Observable<WeightTrack[]>;
+
+  constructor(
+    private route: ActivatedRoute,
+    private clientService: ClientService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    const clientId: string = this.route.snapshot.paramMap.get('id');
+    this.client$ = this.clientService.getClientDetails(clientId).valueChanges();
+    this.clientWeightTrack = this.clientService.clientWeightHistoryCoach(clientId).valueChanges();
   }
 
 }

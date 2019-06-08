@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>client-detail</ion-title>
+    <ion-title>Client Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="client-detail-page" padding>
+  <h3>{{ (client$ | async)?.fullname }}</h3>
 
+  This is the profile page for {{ (client$ | async)?.fullname }} the starting
+  weight was {{ (client$ | async)?.startingWeight }} pounds.
+
+  <ion-card>
+    <ion-card-header>
+      <ion-icon name="clipboard"></ion-icon>
+      Weight History
+    </ion-card-header>
+
+    <ion-list>
+      <ion-item *ngFor="let weight of clientWeightTrack | async">
+        <ion-label>
+          <ion-grid>
+            <ion-row>
+              <ion-col size="8">{{weight.date | amDateFormat:'LL'}}</ion-col>
+              <ion-col size="4">{{weight.weight}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>
