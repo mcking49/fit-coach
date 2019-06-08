@@ -1,7 +1,8 @@
 {
   "name": "fit-coach",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }
