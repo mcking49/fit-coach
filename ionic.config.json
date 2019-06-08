@@ -1,0 +1,7 @@
+{
+  "name": "fit-coach",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
