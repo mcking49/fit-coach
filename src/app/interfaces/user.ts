@@ -3,4 +3,5 @@ export interface User {
   fullname: string;
   email: string;
   admin: boolean;
+  startingWeight?: number;
 }
