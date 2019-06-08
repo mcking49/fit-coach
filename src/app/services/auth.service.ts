@@ -14,12 +14,34 @@ export class AuthService {
     this.afAuth.authState.subscribe((user: firebase.User) => {
       if (user) {
         this.currentUser = user;
+      } else {
+        this.currentUser = null;
       }
     });
   }
 
   public get currentUserId(): string {
     return this.currentUser.uid;
+  }
+
+  public isLoggedIn(): Promise<boolean> {
+    return new Promise<boolean>(async (resolve, reject) => {
+      try {
+        if (this.currentUser) {
+          resolve(true);
+        }
+
+        this.afAuth.authState.subscribe((user) => {
+          if (user) {
+            resolve(true);
+          } else {
+            resolve(false);
+          }
+        });
+      } catch (error) {
+        reject(error);
+      }
+    });
   }
 
   public login(email: string, password: string): Promise<firebase.auth.UserCredential> {
