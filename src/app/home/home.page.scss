@@ -1,1 +1,16 @@
+.home-page {
+  ion-content {
+    ion-button {
+      margin-bottom: 20px;
+    }
 
+    form {
+      ion-button {
+        margin-bottom: 20px;
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+  }
+}

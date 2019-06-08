@@ -26,8 +26,8 @@ export class LoginPage implements OnInit {
     this.initLoginForm();
   }
 
-  public async login(loginForm: FormGroup): Promise<void> {
-    if (loginForm.valid) {
+  public async login(): Promise<void> {
+    if (this.loginForm.valid) {
       const loading = await this.loadingCtrl.create();
       loading.present();
 

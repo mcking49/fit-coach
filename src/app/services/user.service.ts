@@ -18,11 +18,12 @@ export class UserService {
   public isAdmin(userId: string): Promise<boolean> {
     return new Promise<boolean>(async (resolve, reject) => {
       try {
-        const user: User = await this.firestore
+        this.firestore
           .doc<User>(`${this.rootPath}/${userId}`)
           .valueChanges()
-          .toPromise();
-        resolve(user.admin);
+          .subscribe((user: User) => {
+            resolve(user.admin);
+          });
       } catch (error) {
         reject(error);
       }
