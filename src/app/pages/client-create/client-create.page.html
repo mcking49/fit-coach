@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>client-create</ion-title>
+    <ion-title>Add a new Client</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="client-create-page" padding>
+  <form [formGroup]="clientCreateForm">
+    <ion-item>
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input
+        formControlName="name"
+        type="text"
+        placeholder="What's your client's name?">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input
+        formControlName="email"
+        type="email"
+        placeholder="Your client's email address">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Starting Weight</ion-label>
+      <ion-input
+        formControlName="startingWeight"
+        type="number"
+        placeholder="Your client's starting weight">
+      </ion-input>
+    </ion-item>
+
+    <ion-button
+      expand="block"
+      (click)="clientCreate()"
+      [disabled]="clientCreateForm.invalid">
+      ADD NEW CLIENT
+    </ion-button>
+  </form>
 
 </ion-content>
