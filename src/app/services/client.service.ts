@@ -49,10 +49,11 @@ export class ClientService {
 
   public clientTrackWeight(weight: number) {
     const weightTrack: WeightTrack = {
+      id: this.firestore.createId(),
       weight,
-      date: firebase.firestore.Timestamp
+      date: new Date().toJSON()
     };
-    return this.firestore.collection<WeightTrack>(`userProfile/${this.userId}/weightTrack`).add(weightTrack);
+    return this.firestore.doc<WeightTrack>(`userProfile/${this.userId}/weightTrack/${weightTrack.id}`).set(weightTrack);
   }
 
   public clientWeightHistory(): AngularFirestoreCollection<WeightTrack> {

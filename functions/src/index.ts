@@ -30,3 +30,22 @@ exports.createClientAccount = functions.firestore
       return error;
     }
   });
+
+exports.addWeightTrack = functions.firestore
+  .document('userProfile/{userId}/weightTrack/{weightId}')
+  .onCreate(async (snapshot, context) => {
+    const userId = context.params.userId;
+    const weightTrack = snapshot.data();
+    try {
+      const userSnapshot: FirebaseFirestore.DocumentSnapshot = await admin.firestore().doc(`userProfile/${userId}`).get()
+      const coachId = userSnapshot.data()!.coachId;
+
+      return admin
+        .firestore()
+        .doc(`userProfile/${coachId}/clientList/${userId}/weightTrack/${weightTrack!.id}`)
+        .set(weightTrack!);
+    } catch (error) {
+      console.error('--- ERROR: failed to add a new weight track: ', error);
+      return error;
+    }
+  });
