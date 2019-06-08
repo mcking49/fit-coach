@@ -4,6 +4,41 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="login-page" padding>
+  <img src="http://placehold.it/300x100" />
 
+  <form [formGroup]="loginForm">
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input
+        formControlName="email"
+        type="email"
+        placeholder="Your email address">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input
+        formControlName="password"
+        type="password"
+        placeholder="Your password">
+      </ion-input>
+    </ion-item>
+
+    <ion-button
+      expand="block"
+      (click)="login()"
+      [disabled]="loginForm.invalid">
+      Login
+    </ion-button>
+  </form>
+
+  <ion-button expand="block" fill="clear" routerLink="/signup">
+    Create a new account
+  </ion-button>
+
+  <ion-button expand="block" fill="clear" routerLink="/password-reset">
+    I forgot my password
+  </ion-button>
 </ion-content>
