@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "250405304958",
+    "firebase_url": "https://miten-fit-coach.firebaseio.com",
+    "project_id": "miten-fit-coach",
+    "storage_bucket": "miten-fit-coach.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250405304958:android:380fb3aa45752caf",
+        "android_client_info": {
+          "package_name": "com.miten.fitcoach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250405304958-vc4j6mmtlr5a0gpiir79191sthpjmnva.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzVrJvnbqhRyEvels1liqAFpAttmfa6b4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "250405304958-vc4j6mmtlr5a0gpiir79191sthpjmnva.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "250405304958-69e21gaoeirasv1u1vmocjfioguo279j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.miten.fitcoach"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
