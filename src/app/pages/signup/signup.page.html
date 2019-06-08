@@ -1,9 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>signup</ion-title>
+    <ion-title>Create an account</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="signup-page" padding>
+  <img src="http://placehold.it/300x100" />
 
+  <form [formGroup]="signupForm">
+    <ion-item>
+      <ion-label position="stacked">Name</ion-label>
+      <ion-input
+        formControlName="name"
+        type="text"
+        placeholder="Your full name">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input
+        formControlName="email"
+        type="email"
+        placeholder="Your email address">
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Password</ion-label>
+      <ion-input
+        formControlName="password"
+        type="password"
+        placeholder="Your password">
+      </ion-input>
+    </ion-item>
+
+    <ion-button
+      expand="block"
+      (click)="signup()"
+      [disabled]="signupForm.invalid">
+      Create Account
+    </ion-button>
+  </form>
 </ion-content>
