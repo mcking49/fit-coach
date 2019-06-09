@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.miten.fitcoach;
 
 import android.os.Bundle;
 

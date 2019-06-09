@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "fit-coach",
+  "appId": "com.miten.fitcoach",
+  "appName": "Miten Fit Coach",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www"

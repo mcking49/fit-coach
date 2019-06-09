@@ -49,3 +49,33 @@ exports.addWeightTrack = functions.firestore
       return error;
     }
   });
+
+exports.sendWeightUpdate = functions.firestore
+  .document('userProfile/{clientId}/weightTrack/{weightId}')
+  .onCreate(async (snapshot, context) => {
+    const clientId = context.params.clientId;
+    const weight = snapshot.data()!.weight;
+
+    try {
+      const clientSnapshot = await admin.firestore().doc(`userProfile/${clientId}`).get();
+      const client = clientSnapshot.data()!;
+
+      const coachSnapshot = await admin.firestore().doc(`userProfile/${client.coachId}`).get();
+      const coachToken = coachSnapshot.data()!.token;
+
+      const payload = {
+        notification: {
+          title: `${client!.fullname} just shared a weight update`,
+          body: `${client!.fullname} started at ${client!.startingWeight} and just updated to ${weight}`,
+          sound: 'default',
+          click_action: 'FCM_PLUGIN_ACTIVITY'
+        },
+        data: { clientId }
+      };
+
+      return admin.messaging().sendToDevice(coachToken, payload);
+    } catch (error) {
+      console.error('--- ERROR: failed to send push notification to coach: ', error);
+      return error;
+    }
+  });

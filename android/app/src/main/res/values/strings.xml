@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">fit-coach</string>
     <string name="title_activity_main">fit-coach</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="fileprovider_authority">io.ionic.starter.fileprovider</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="package_name">com.miten.fitcoach</string>
+    <string name="fileprovider_authority">com.miten.fitcoach.fileprovider</string>
+    <string name="custom_url_scheme">com.miten.fitcoach</string>
 </resources>

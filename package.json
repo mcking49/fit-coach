@@ -1,7 +1,7 @@
 {
-  "name": "fit-coach",
+  "name": "com.miten.fitcoach",
   "version": "0.0.1",
-  "author": "Ionic Framework",
+  "author": "Miten Chauhan",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
