@@ -44,8 +44,10 @@ export class AuthService {
     });
   }
 
-  public login(email: string, password: string): Promise<firebase.auth.UserCredential> {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
+  public async login(email: string, password: string): Promise<firebase.auth.UserCredential> {
+    const userCredential = await this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    this.userService.registerPushToken(userCredential.user.uid);
+    return userCredential;
   }
 
   public logout(): Promise<void> {

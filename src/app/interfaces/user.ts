@@ -5,4 +5,5 @@ export interface User {
   admin: boolean;
   startingWeight?: number;
   coachId?: string;
+  token?: string;
 }
